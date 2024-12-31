@@ -5,7 +5,7 @@ function Product({title, price, features}) {
 
     // const isDiscount = price > 30000 ? "discount of 5%" : "";
     let isDiscount = price > 30000;
-    let styles = {backgroundColor: isDiscount ? "yellow" : null };
+   let styles = {backgroundColor : price > 30000 ? "yellow" :null};
     return (
         
         <div className="Product" style={styles}>
