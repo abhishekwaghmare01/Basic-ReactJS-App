@@ -1,8 +1,15 @@
 function Price({oldPrice, newPrice}){
+    let styles = {
+        textDecorationLine: "line-through"
+    }
+    let newStyle ={
+        fontWeight: "bold"
+    }
     return(
         <div>
-            <p>{oldPrice}</p>
-            <p>{newPrice}</p>
+            <span style={styles}>{oldPrice}</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span style={newStyle}>{newPrice}</span>
         </div>
     )
 }
