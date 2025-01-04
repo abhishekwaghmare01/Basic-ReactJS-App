@@ -2,13 +2,12 @@ import Product from "./product.jsx";
 
 
 function ProductTab(){
-    let options = ["hi-tech", "durable", ,"fast"];
     return(
         <>
-        <Product title="Laptop" price={40000} />
-        <Product title="Phone" price={3000}/>
-        <Product title="Pen" price={10}/>
-
+        <Product title="Logitech MX Master" idx={0} />
+        <Product  title="Apple Pencil (2nd gen)" idx={1} />
+        <Product title="Zebronics Zeb-transformer" idx={2}/>
+        <Product title="Petronics Toab 23" idx={3}/>
         </>
     )
 }
