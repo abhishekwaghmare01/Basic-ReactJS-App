@@ -1,12 +1,12 @@
 import "./App.css";
 import ProductTab from "./ProductTab.jsx";
 import Button from "./Button.jsx";
-import nonClickHand from "./nonClickHand.jsx";
-
+import NonClickHandle from "./NonClickHandle.jsx";
+import Form from "./Forms.jsx";
 function App() {
   return (
     <>
-      <nonClickHand/>
+      <Form/>
     </>
   );
 
