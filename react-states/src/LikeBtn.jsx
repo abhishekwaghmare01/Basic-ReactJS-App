@@ -2,16 +2,20 @@ import { useState } from "react";
 export default function LikeBtn() {
     let [isLike, setIsLike] = useState(false);
 
+  
+
     let toggleBtn = () => {
       setIsLike(!isLike);
     }
+
+    let btnStyle = {color : "red"};
     return (
         <div>
-             <p onClick={toggleBtn}>
+             <h2 onClick={toggleBtn}>
            {
-            isLike ? (<i className="fa-solid fa-heart"></i>) : (<i className="fa-regular fa-heart"></i>)
+            isLike ? (<i className="fa-solid fa-heart" style={btnStyle}></i>) : (<i className="fa-regular fa-heart"></i>)
            }
-           </p>
+           </h2>
         </div>
     )
 }
