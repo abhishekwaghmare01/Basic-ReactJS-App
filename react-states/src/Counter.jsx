@@ -1,8 +1,17 @@
 import { useState } from "react";
+
+function randomNo(){
+    console.log("randonNo was executed!");
+    
+    return Math.random();
+}
+
 export default function Counter(){
-    let [count,setCount] = useState(0);
+    let [count,setCount] = useState(randomNo);
+    console.log("component was re-rendered")
 
     let incCount = () => {
+        
         // count = count+1;
         setCount((currCount) => {
             return currCount + 1;
