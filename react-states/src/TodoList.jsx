@@ -11,6 +11,7 @@ export default function TodoList(){
        // console.log("we have to add new task in todo");
        //for arrays input items add
        setTodos([...todos, newTodo]);
+       setNewTodo("");
         
     }
 
@@ -22,7 +23,7 @@ export default function TodoList(){
     return(
         <div>
             <input type="text" placeholder="Add a Task" 
-             onChange={updateTodoList}/>
+            value={newTodo} onChange={updateTodoList}/>
             <br />
             <button onClick={addNewTask}>Add Task</button>
             <br />
