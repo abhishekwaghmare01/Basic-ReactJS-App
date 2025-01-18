@@ -23,6 +23,11 @@ export default function TodoList(){
         setNewTodo(event.target.value);
     }
 
+    //Delete todo task
+    let deleteTodo = ()=>{
+        console.log("task to be deleted");
+    }
+
     return(
         <div>
             <input type="text" placeholder="Add a Task" 
@@ -39,7 +44,11 @@ export default function TodoList(){
                 {/* Arrays ko render krne ke liye */}
                 {
                     todos.map((todo)=>(
-                        <li key={todo.id}>{todo.task}</li>
+                        <li key={todo.id}>
+                           <span> {todo.task} </span>
+                           &nbsp;&nbsp;&nbsp;&nbsp;
+                           <button style={{marginTop: "12px"}} onClick={deleteTodo}>Delete</button>
+                        </li>
                     ))
                 }
             </ul>
