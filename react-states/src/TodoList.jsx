@@ -38,6 +38,15 @@ export default function TodoList(){
         
     }
 
+    //Updating task in arrays to upperCase;
+    let upperCaseTask = () =>{
+        todos.map((todo)=>{
+            console.log(todo);
+            
+        })
+    }
+
+
     return(
         <div>
             <input type="text" placeholder="Add a Task" 
@@ -60,6 +69,7 @@ export default function TodoList(){
                     ))
                 }
             </ul>
+            <button onClick={upperCaseTask}>toUpperCase</button>
         </div>
     )
 }
