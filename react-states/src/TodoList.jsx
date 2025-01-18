@@ -2,9 +2,9 @@ import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 export default function TodoList(){
-
+    //main array to store the task
     let [todos, setTodos] = useState([{task : "sample task", id : uuidv4()}]);
-
+    //to print new task in the todo
     let [newTodo, setNewTodo] = useState("");
 
     //function define Add new task
@@ -28,8 +28,12 @@ export default function TodoList(){
         //console.log(id);
      
         //use Filter method to delete task
-        let copy = todos.filter((todo)=> todo.id != id);
-        console.log(copy);
+        // let copy = todos.filter((todo)=> todo.id != id);
+        // console.log(copy);
+
+       // setTodos(todos.filter((todo)=> todo.id != id));
+
+       setTodos((prevTodos) => todos.filter((todo) => prevTodos.id != id));
         
         
     }
