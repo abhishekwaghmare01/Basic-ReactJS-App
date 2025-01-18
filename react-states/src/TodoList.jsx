@@ -24,8 +24,14 @@ export default function TodoList(){
     }
 
     //Delete todo task
-    let deleteTodo = ()=>{
-        console.log("task to be deleted");
+    let deleteTodo = (id)=>{
+        //console.log(id);
+     
+        //use Filter method to delete task
+        let copy = todos.filter((todo)=> todo.id != id);
+        console.log(copy);
+        
+        
     }
 
     return(
@@ -34,10 +40,7 @@ export default function TodoList(){
             value={newTodo} onChange={updateTodoList}/>
             <br />
             <button onClick={addNewTask}>Add Task</button>
-            <br />
-            <br />
-            <br />
-            <br />
+            <br />  <br /> <br /> <br />
             <hr />
             <h3>Task To-Do List</h3>
             <ul>
@@ -47,7 +50,8 @@ export default function TodoList(){
                         <li key={todo.id}>
                            <span> {todo.task} </span>
                            &nbsp;&nbsp;&nbsp;&nbsp;
-                           <button style={{marginTop: "12px"}} onClick={deleteTodo}>Delete</button>
+                           <button style={{marginTop: "12px"}} onClick={
+                            () => deleteTodo(todo.id)}>Delete</button>
                         </li>
                     ))
                 }
