@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function TodoList(){
 
-    let [todos, setTodos] = useState([]);
+    let [todos, setTodos] = useState([{task : "sample task", id : uuidv4()}]);
 
     let [newTodo, setNewTodo] = useState("");
 
@@ -10,7 +11,9 @@ export default function TodoList(){
     let addNewTask = ()=>{
        // console.log("we have to add new task in todo");
        //for arrays input items add
-       setTodos([...todos, newTodo]);
+       setTodos((prevTodos)=>{
+        return [...prevTodos, {task : newTodo, id : uuidv4()}];
+       });
        setNewTodo("");
         
     }
@@ -36,7 +39,7 @@ export default function TodoList(){
                 {/* Arrays ko render krne ke liye */}
                 {
                     todos.map((todo)=>(
-                        <li>{todo}</li>
+                        <li key={todo.id}>{todo.task}</li>
                     ))
                 }
             </ul>
