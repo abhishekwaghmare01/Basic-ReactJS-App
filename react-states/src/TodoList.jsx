@@ -33,17 +33,21 @@ export default function TodoList(){
 
        // setTodos(todos.filter((todo)=> todo.id != id));
 
-       setTodos((prevTodos) => todos.filter((todo) => prevTodos.id != id));
+       setTodos((prevTodo) => todos.filter((prevTodo) => prevTodo.id != id));
         
         
     }
 
     //Updating task in arrays to upperCase;
     let upperCaseTask = () =>{
-        todos.map((todo)=>{
-            console.log(todo);
-            
-        })
+        setTodos(todos.map((todo)=>{
+            //console.log(todo);
+            //All todos ki copy banani hai...
+            return {
+                ...todo,
+                task : todo.task.toUpperCase()
+            } 
+        }));
     }
 
 
