@@ -67,11 +67,8 @@ export default function TodoList(){
            
         }));
     }
-    // const strikethroughStyle = {
-    //     textDecoration: 'line-through',
-    // };
 
-    //mark as done
+    //mark as one done
     let MarkAsDone = (id)=>{
         setTodos( (prevTodo)=> 
             prevTodo.map((todo)=>{
@@ -88,37 +85,52 @@ export default function TodoList(){
         )
     }
 
+    //Mark as All Done
+    let AllDone = ()=>{
+        setTodos( (previTodo)=>
+                
+            previTodo.map((todo)=>{ 
+            return {
+                ...todo,
+                isDone:true,
+            } 
+        }));
+    }
+
+
 
     return(
         <div>
-            <input type="text" placeholder="Add a Task" 
+            <input style={{padding: "12px"}} type="text" placeholder="Add a Task" 
             value={newTodo} onChange={updateTodoList}/>
             <br />
-            <button onClick={addNewTask}>Add Task</button>
-            <br />  <br /> <br /> <br />
+            <button style={{marginTop:"10px"}} onClick={addNewTask}>Add Task</button>
+            <br />  <br /> <br /> 
             <hr />
             <h3>Task To-Do List</h3>
             <ul>
                 {/* Arrays ko render krne ke liye */}
                 {
                     todos.map((todo)=>(
-                        <li key={todo.id}>
-                           <span style={todo.isDone ? {textDecorationLine : "line-through"} : {}}> 
-                            
-                            {todo.task} 
-                            </span>
+                        <li style={{fontFamily:"cursive"}}  key={todo.id}>
+                           <span  style={todo.isDone ? {textDecorationLine : "line-through"} : {}}>{todo.task} </span>
+
                            &nbsp;&nbsp;&nbsp;&nbsp;
-                           <button style={{marginTop: "12px"}} onClick={
+
+                           <button style={{marginTop: "12px", color:"red"}} onClick={
                             () => deleteTodo(todo.id)}>Delete</button>
-                           <button style={{marginTop: "12px",  marginLeft: "12px"}} onClick={
-                            () => UpperCaseOne(todo.id)}>UpperCase one</button>
-                           <button style={{marginTop: "12px",  marginLeft: "12px"}} onClick={
+
+                           <button style={{marginTop: "12px",  marginLeft: "12px", color:"yellow"}} onClick={
+                            () => UpperCaseOne(todo.id)}>UpperCase One</button>
+
+                           <button style={{marginTop: "12px",  marginLeft: "12px", color:"green"}} onClick={
                             () => MarkAsDone(todo.id)}>Mark as Done</button>
                         </li>
                     ))
                 }
             </ul>
-            <button onClick={upperCaseTask}>toUpperCase</button>
+            <button style={{color:"yellow"}} onClick={upperCaseTask}>to UpperCase All</button>
+            <button style={{marginTop: "12px",  marginLeft: "12px", color:"green"}}  onClick={AllDone}>Mark As All Done</button>
         </div>
     )
 }
